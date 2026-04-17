@@ -22,7 +22,6 @@ on:
         default: testng.xml
         required: true
 
-
 jobs:
   test:
 
