@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.api.pojo.UserCredentials;
 import com.api.utils.ConfigManager;
+import com.api.utils.SpecUtil;
 
 import io.restassured.http.ContentType;
 
@@ -18,27 +19,19 @@ import io.restassured.http.ContentType;
 public class LoginAPITest {
 
 	UserCredentials userCredentials = new UserCredentials("iamfd","password");
-	
+
 	@Test
 	public void loginAPITest() throws IOException
 	{
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.contentType(ContentType.JSON)
-		.body(userCredentials)
-		.log().uri()
-		.log().headers()
-		.log().method()
-		.log().body()
+		.spec(SpecUtil.requestSpec(userCredentials))
 		.when()
 		.post("login")
 		.then()
-		.log().all()
-		.statusCode(200)
-		.time(lessThan(2000L))
+		.spec(SpecUtil.responseSpec())
 		.body("message", equalTo("Success"))
 		.body(matchesJsonSchemaInClasspath("responseSchema/loginResponseSchema.json"));
-		
+
 	}
-	
+
 }
