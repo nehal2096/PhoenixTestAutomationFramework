@@ -32,7 +32,7 @@ public class CountAPITest {
 		.body("data.label", Matchers.notNullValue())
 		.body("data.label",Matchers.everyItem(Matchers.not(Matchers.blankOrNullString())))
 		.body("data.key", Matchers.containsInAnyOrder("pending_for_delivery","created_today","pending_fst_assignment"));	
-		
+
 	}
 
 	@Test

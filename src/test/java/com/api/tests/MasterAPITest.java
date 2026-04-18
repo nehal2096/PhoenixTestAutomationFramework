@@ -31,7 +31,7 @@ public class MasterAPITest {
 		.body("data.mst_oem.size()", Matchers.greaterThan(0))
 		.body("data.mst_model.size()", Matchers.equalTo(3))
 		.and().body("data.mst_oem.id", Matchers.everyItem(Matchers.notNullValue()));
-		
+
 	}
 	@Test
 	public void verifyMasterAPIResponseByPassingWrongEndpoint()

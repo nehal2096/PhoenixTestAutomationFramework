@@ -19,15 +19,13 @@ public class UserDetailsAPITest {
 	@Test
 	public void userDetailsAPITest() throws IOException
 	{
-		
 		given()
 		.spec(SpecUtil.requestSpecWithAuth(Roles.FD))
 		.when()
 		.get("userdetails")
 		.then()
 		.spec(SpecUtil.responseSpec());
-		
-		
+
 	}
-	
+
 }

@@ -19,7 +19,7 @@ import io.restassured.http.ContentType;
 public class LoginAPITest {
 
 	UserCredentials userCredentials = new UserCredentials("iamfd","password");
-	
+
 	@Test
 	public void loginAPITest() throws IOException
 	{
@@ -31,7 +31,7 @@ public class LoginAPITest {
 		.spec(SpecUtil.responseSpec())
 		.body("message", equalTo("Success"))
 		.body(matchesJsonSchemaInClasspath("responseSchema/loginResponseSchema.json"));
-		
+
 	}
-	
+
 }

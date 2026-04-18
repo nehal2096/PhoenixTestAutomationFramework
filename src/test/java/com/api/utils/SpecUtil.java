@@ -26,7 +26,7 @@ public class SpecUtil {
 		return requestSpecification;
 
 	}
-	
+
 	public static RequestSpecification requestSpecWithAuth(Roles role)
 	{
 		RequestSpecification requestSpecification = new RequestSpecBuilder()
@@ -43,8 +43,8 @@ public class SpecUtil {
 		return requestSpecification;
 
 	}
-	
-	
+
+
 	public static RequestSpecification requestSpec(Object payload)
 	{
 		RequestSpecification requestSpecification = new RequestSpecBuilder()
@@ -80,7 +80,7 @@ public class SpecUtil {
 
 	}
 
-	
+
 	public static ResponseSpecification responseSpec()
 	{
 		ResponseSpecification responseSpecification = new ResponseSpecBuilder()
@@ -91,5 +91,5 @@ public class SpecUtil {
 				.build();
 		return responseSpecification;
 	}
-	
+
 }
