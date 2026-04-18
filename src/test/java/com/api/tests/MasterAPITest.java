@@ -6,7 +6,9 @@ import org.testng.annotations.Test;
 import com.api.constant.Roles;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.ConfigManager;
+import com.api.utils.SpecUtil;
 
+import groovyjarjarpicocli.CommandLine.Spec;
 import io.restassured.http.ContentType;
 
 import static io.restassured.RestAssured.*;
@@ -17,14 +19,11 @@ public class MasterAPITest {
 	public void verifyMasterAPIResponse()
 	{
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.contentType(ContentType.JSON)
-		.headers("Authorization", AuthTokenProvider.getToken(Roles.FD))
+		.spec(SpecUtil.requestSpecWithAuth(Roles.FD))
 		.when()
 		.post("master")
 		.then()
-		.statusCode(200)
-		.time(Matchers.lessThan(1000L))
+		.spec(SpecUtil.responseSpec())
 		.body("data", Matchers.notNullValue())
 		.body("message", Matchers.equalTo("Success"))
 		.body("data", Matchers.hasKey("mst_oem"))
@@ -38,9 +37,7 @@ public class MasterAPITest {
 	public void verifyMasterAPIResponseByPassingWrongEndpoint()
 	{
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.contentType(ContentType.JSON)
-		.headers("Authorization", AuthTokenProvider.getToken(Roles.FD))
+		.spec(SpecUtil.requestSpecWithAuth(Roles.FD))
 		.when()
 		.post("masters")
 		.then()
