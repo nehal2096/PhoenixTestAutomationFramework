@@ -28,7 +28,7 @@ public class CountAPITest {
 		.statusCode(200)
 		.time(Matchers.lessThan(1000L))
 		.body("message", Matchers.equalTo("Success"))
-		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema\\CountAPIResponseSchemaFD.json"))
+		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema/CountAPIResponseSchemaFD.json"))
 		.body("data.size()",Matchers.equalTo(3))
 		.body("data",Matchers.notNullValue())
 		.body("data.label", Matchers.notNullValue())
