@@ -1,21 +1,16 @@
 package com.api.tests;
 
+import static io.restassured.RestAssured.given;
+
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import com.api.constant.Roles;
-import com.api.utils.AuthTokenProvider;
-import com.api.utils.ConfigManager;
 import com.api.utils.SpecUtil;
-
-import groovyjarjarpicocli.CommandLine.Spec;
-import io.restassured.http.ContentType;
-
-import static io.restassured.RestAssured.*;
 
 public class MasterAPITest {
 
-	@Test
+	@Test(description="Verifying if the Master API is giving proper response", groups= {"regression","api","smoke"})
 	public void verifyMasterAPIResponse()
 	{
 		given()
@@ -33,7 +28,7 @@ public class MasterAPITest {
 		.and().body("data.mst_oem.id", Matchers.everyItem(Matchers.notNullValue()));
 
 	}
-	@Test
+	@Test(description="Verifying if the master api is giving correct status code for invalid request", groups= {"negative","regression","api","smoke"})
 	public void verifyMasterAPIResponseByPassingWrongEndpoint()
 	{
 		given()
