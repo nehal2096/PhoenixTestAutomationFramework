@@ -33,14 +33,16 @@
 			<artifactId>rest-assured</artifactId>
 			<version>5.5.6</version>
 		</dependency>
-		<!-- Source: https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+		<!-- Source:
+		https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>json-schema-validator</artifactId>
 			<version>5.5.6</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- Source: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!-- Source:
+		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -54,8 +56,14 @@
 			<version>7.11.0</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.12.0</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
-
 
 
 </project>
