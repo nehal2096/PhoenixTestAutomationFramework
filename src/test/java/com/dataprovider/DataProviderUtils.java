@@ -12,7 +12,7 @@ public class DataProviderUtils {
 	@DataProvider(name = "LoginAPIDataProvider" , parallel = true)
 	public static Iterator<UserBean> loginAPIDataProvider()
 	{
-		return CSVReaderUtil.loadCSV("testData/LoginCreds.csv");
+		return CSVReaderUtil.loadCSV("testData/LoginCreds.csv", UserBean.class);
 	}
 	
 }
